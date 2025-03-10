@@ -4,14 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.gabriel.game_store.ui.theme.GamestoreTheme
+import androidx.navigation.compose.rememberNavController
+import com.gabriel.game_store.presentation.navigation.MyNavHost
+import com.gabriel.game_store.presentation.navigation.BottomNavBar
+import com.gabriel.game_store.presentation.ui.theme.GamestoreTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,29 +18,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GamestoreTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                val navController = rememberNavController()
+                Scaffold(
+                    bottomBar = { BottomNavBar(navController = navController) }
+                ) { innerPadding ->
+                    MyNavHost(
+                        navController = navController,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    GamestoreTheme {
-        Greeting("Android")
     }
 }
