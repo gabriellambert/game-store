@@ -1,4 +1,4 @@
-package com.gabriel.game_store.ui.theme
+package com.gabriel.game_store.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
