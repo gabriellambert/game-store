@@ -76,7 +76,7 @@ class GameBanners {
                 modifier = Modifier
                     .horizontalScroll(rememberScrollState())
                     .height(90.dp),
-                horizontalArrangement = Arrangement.spacedBy(21.dp),
+                horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
                 games.forEach(){Game ->
                     GameBanner(Game, modifier = Modifier.width(180.dp))
