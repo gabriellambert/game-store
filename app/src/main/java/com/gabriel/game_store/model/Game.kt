@@ -1,4 +1,4 @@
-package com.gabriel.game_store.modules
+package com.gabriel.game_store.model
 
 import androidx.annotation.DrawableRes
 
