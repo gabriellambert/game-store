@@ -24,15 +24,15 @@ import com.gabriel.game_store.modules.Games
 
 class Game_Item {
 
-    var game: List<Games> = listOf(
-        Games("God of War", R.drawable.gow),
-        Games("The Last Of Us", R.drawable.tlou),
-        Games("Zelda: Breath of the wild", R.drawable.zelda),
-        Games("Spider man: Miles Morales", R.drawable.milesmorales),
-        Games("DarkSouls", R.drawable.darksouls)
+    var game: List<Games> = listOf(// lista em memória que deverá ser substituída por uma lista vinda da API quando integrada
+        Games(name = "God of War",image = R.drawable.gow),
+        Games(name = "The Last Of Us", image = R.drawable.tlou),
+        Games(name = "Zelda: Breath of the wild", image = R.drawable.zelda),
+        Games(name = "Spider man: Miles Morales", image = R.drawable.milesmorales),
+        Games(name = "DarkSouls", image = R.drawable.darksouls)
     )
     @Composable
-    fun Game_Card(game: Games) {
+    fun Game_Card(game: Games) { // capa do jogo que será exibido nas seções
         Image(modifier = Modifier
             .height(150.dp)
             .width(100.dp)
@@ -45,7 +45,7 @@ class Game_Item {
     }
 
     @Composable
-    fun Game_Card_Section(sectionTitle: String, games: List<Games>) {
+    fun Game_Card_Section(sectionTitle: String, games: List<Games>) { // sessão de jogos
         Column {
             Text(sectionTitle, modifier = Modifier.padding(bottom = 8.dp))
             Row(
@@ -53,11 +53,10 @@ class Game_Item {
                     .horizontalScroll(rememberScrollState()),
                 horizontalArrangement = Arrangement.spacedBy(19.dp)
             ) {
-                Game_Card(games[0])
-                Game_Card(games[1])
-                Game_Card(games[2])
-                Game_Card(games[3])
-                Game_Card(games[4])
+                games.forEach{ Games ->
+                    Game_Card(Games)
+
+                }
             }
         }
     }
