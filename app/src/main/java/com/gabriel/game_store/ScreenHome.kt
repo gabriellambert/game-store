@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.gabriel.game_store.composables.GameBanners
 import com.gabriel.game_store.composables.GameItem
-import com.gabriel.game_store.modules.Game
+import com.gabriel.game_store.model.Game
 
 class ScreenHome {
 

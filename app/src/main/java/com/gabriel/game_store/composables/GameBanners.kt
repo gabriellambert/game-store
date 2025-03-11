@@ -23,7 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gabriel.game_store.R
-import com.gabriel.game_store.modules.Game
+import com.gabriel.game_store.model.Game
 
 
 class GameBanners {
