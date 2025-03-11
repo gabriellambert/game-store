@@ -23,23 +23,23 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gabriel.game_store.R
-import com.gabriel.game_store.modules.Games
+import com.gabriel.game_store.modules.Game
 
 
-class Game_Banners {
+class GameBanners {
 
-    var game: List<Games> = listOf( // lista em memória que deverá ser substituída por uma lista vinda da API quando integrada
-        Games(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
-        Games(name = "COD: Warzone", image = R.drawable.warzone),
-        Games(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
-        Games(name = "COD: Warzone", image = R.drawable.warzone),
-        Games(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
-        Games(name = "COD: Warzone", image = R.drawable.warzone),
+    var game: List<Game> = listOf( // lista em memória que deverá ser substituída por uma lista vinda da API quando integrada
+        Game(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
+        Game(name = "COD: Warzone", image = R.drawable.warzone),
+        Game(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
+        Game(name = "COD: Warzone", image = R.drawable.warzone),
+        Game(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
+        Game(name = "COD: Warzone", image = R.drawable.warzone),
 
     )
 
     @Composable
-    fun GameBanner(game: Games, modifier: Modifier = Modifier) { // Imagem maior do jogo
+    fun GameBanner(game: Game, modifier: Modifier = Modifier) { // Imagem maior do jogo
         Image(
             modifier = Modifier
                 .fillMaxSize()
@@ -47,7 +47,7 @@ class Game_Banners {
                 .clickable {  }
                 .focusable()
             ,
-            painter = painterResource(id = game.image), // recebe a imagem do objeto Games.kt
+            painter = painterResource(id = game.image), // recebe a imagem do objeto Game.kt
             contentDescription = "Game Banner",
             contentScale = ContentScale.Crop
         )
@@ -55,7 +55,7 @@ class Game_Banners {
     }
 
     @Composable
-    fun Featured(game: Games) { // Seção que deixará o banner com maior tamanho/destaque
+    fun Featured(game: Game) { // Seção que deixará o banner com maior tamanho/destaque
         Column{
             Text("Featured",
                 fontSize = 12.sp,
@@ -69,7 +69,7 @@ class Game_Banners {
         }
     }
     @Composable
-    fun Game_Banner_Section(sectionTitle: String, games: List<Games>) { // lista com imagens maiores dos jogos
+    fun GameBannerSection(sectionTitle: String, games: List<Game>) { // lista com imagens maiores dos jogos
         Column {
             Text(sectionTitle, modifier = Modifier.padding(bottom = 8.dp))
             Row(
@@ -78,8 +78,8 @@ class Game_Banners {
                     .height(90.dp),
                 horizontalArrangement = Arrangement.spacedBy(21.dp),
             ) {
-                games.forEach(){Games ->
-                    GameBanner(Games, modifier = Modifier.width(180.dp))
+                games.forEach(){Game ->
+                    GameBanner(Game, modifier = Modifier.width(180.dp))
                 }
                 }
 

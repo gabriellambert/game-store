@@ -20,19 +20,19 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.gabriel.game_store.R
-import com.gabriel.game_store.modules.Games
+import com.gabriel.game_store.modules.Game
 
-class Game_Item {
+class GameItem {
 
-    var game: List<Games> = listOf(// lista em memória que deverá ser substituída por uma lista vinda da API quando integrada
-        Games(name = "God of War",image = R.drawable.gow),
-        Games(name = "The Last Of Us", image = R.drawable.tlou),
-        Games(name = "Zelda: Breath of the wild", image = R.drawable.zelda),
-        Games(name = "Spider man: Miles Morales", image = R.drawable.milesmorales),
-        Games(name = "DarkSouls", image = R.drawable.darksouls)
+    var game: List<Game> = listOf(// lista em memória que deverá ser substituída por uma lista vinda da API quando integrada
+        Game(name = "God of War",image = R.drawable.gow),
+        Game(name = "The Last Of Us", image = R.drawable.tlou),
+        Game(name = "Zelda: Breath of the wild", image = R.drawable.zelda),
+        Game(name = "Spider man: Miles Morales", image = R.drawable.milesmorales),
+        Game(name = "DarkSouls", image = R.drawable.darksouls)
     )
     @Composable
-    fun Game_Card(game: Games) { // capa do jogo que será exibido nas seções
+    fun GameCard(game: Game) { // capa do jogo que será exibido nas seções
         Image(modifier = Modifier
             .height(150.dp)
             .width(100.dp)
@@ -45,7 +45,7 @@ class Game_Item {
     }
 
     @Composable
-    fun Game_Card_Section(sectionTitle: String, games: List<Games>) { // sessão de jogos
+    fun GameCardSection(sectionTitle: String, games: List<Game>) { // sessão de jogos
         Column {
             Text(sectionTitle, modifier = Modifier.padding(bottom = 8.dp))
             Row(
@@ -53,8 +53,8 @@ class Game_Item {
                     .horizontalScroll(rememberScrollState()),
                 horizontalArrangement = Arrangement.spacedBy(19.dp)
             ) {
-                games.forEach{ Games ->
-                    Game_Card(Games)
+                games.forEach{ Game ->
+                    GameCard(Game)
 
                 }
             }

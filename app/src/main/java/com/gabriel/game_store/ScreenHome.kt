@@ -12,9 +12,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.gabriel.game_store.composables.Game_Banners
-import com.gabriel.game_store.composables.Game_Item
-import com.gabriel.game_store.modules.Games
+import com.gabriel.game_store.composables.GameBanners
+import com.gabriel.game_store.composables.GameItem
+import com.gabriel.game_store.modules.Game
 
 class ScreenHome {
 
@@ -27,19 +27,19 @@ fun HomeBrew() { // Tela Home
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
-        Game_Banners().Featured(
-            Games(
+        GameBanners().Featured(
+            Game(
                 name = "COD: Warzone",
                 image = R.drawable.warzone
             )
         ) // componente visual da seção "Featured"
-        Game_Item().Game_Card_Section(
+        GameItem().GameCardSection(
             sectionTitle = "Top Rated",
-            games = Game_Item().game
+            games = GameItem().game
         ) // componente visual da seção "Top Rated"
-        Game_Banners().Game_Banner_Section(
+        GameBanners().GameBannerSection(
             sectionTitle = "Recommended",
-            games = Game_Banners().game
+            games = GameBanners().game
         ) // componente visual da seção "Recommended"
     }
 }
