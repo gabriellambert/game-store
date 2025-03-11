@@ -20,7 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.gabriel.game_store.R
-import com.gabriel.game_store.modules.Game
+import com.gabriel.game_store.model.Game
 
 class GameItem {
 
@@ -51,7 +51,7 @@ class GameItem {
             Row(
                 modifier = Modifier
                     .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(19.dp)
+                horizontalArrangement = Arrangement.spacedBy(20.dp)
             ) {
                 games.forEach{ Game ->
                     GameCard(Game)
