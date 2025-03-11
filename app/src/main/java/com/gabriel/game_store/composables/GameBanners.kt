@@ -78,8 +78,8 @@ class GameBanners {
                     .height(90.dp),
                 horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
-                games.forEach(){Game ->
-                    GameBanner(Game, modifier = Modifier.width(180.dp))
+                games.forEach(){i -> // para cada jogo da lista, o jogo será chamado pelo seu índice (i)
+                    GameBanner(i, modifier = Modifier.width(180.dp))
                 }
                 }
 
