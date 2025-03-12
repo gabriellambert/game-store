@@ -24,7 +24,7 @@ import com.gabriel.game_store.model.Game
 
 class GameItem {
 
-    var game: List<Game> = listOf(// lista em memória que deverá ser substituída por uma lista vinda da API quando integrada
+    var game: List<Game> = listOf(// devemos substituir por uma lista vinda da API quando integrada
         Game(name = "God of War",image = R.drawable.gow),
         Game(name = "The Last Of Us", image = R.drawable.tlou),
         Game(name = "Zelda: Breath of the wild", image = R.drawable.zelda),
@@ -32,7 +32,7 @@ class GameItem {
         Game(name = "DarkSouls", image = R.drawable.darksouls)
     )
     @Composable
-    fun GameCard(game: Game) { // capa do jogo que será exibido nas seções
+    fun GameCard(game: Game) {
         Image(modifier = Modifier
             .height(150.dp)
             .width(100.dp)
@@ -45,7 +45,7 @@ class GameItem {
     }
 
     @Composable
-    fun GameCardSection(sectionTitle: String, games: List<Game>) { // sessão de jogos
+    fun GameCardSection(sectionTitle: String, games: List<Game>) {
         Column {
             Text(sectionTitle, modifier = Modifier.padding(bottom = 8.dp))
             Row(

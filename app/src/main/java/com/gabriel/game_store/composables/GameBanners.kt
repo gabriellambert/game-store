@@ -28,7 +28,7 @@ import com.gabriel.game_store.model.Game
 
 class GameBanners {
 
-    var game: List<Game> = listOf( // lista em memória que deverá ser substituída por uma lista vinda da API quando integrada
+    var game: List<Game> = listOf( // devemos substituir por uma lista vinda da API quando integrada
         Game(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
         Game(name = "COD: Warzone", image = R.drawable.warzone),
         Game(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
@@ -39,7 +39,7 @@ class GameBanners {
     )
 
     @Composable
-    fun GameBanner(game: Game, modifier: Modifier = Modifier) { // Imagem maior do jogo
+    fun GameBanner(game: Game, modifier: Modifier) {
         Image(
             modifier = Modifier
                 .fillMaxSize()
@@ -47,7 +47,7 @@ class GameBanners {
                 .clickable {  }
                 .focusable()
             ,
-            painter = painterResource(id = game.image), // recebe a imagem do objeto Game.kt
+            painter = painterResource(id = game.image),
             contentDescription = "Game Banner",
             contentScale = ContentScale.Crop
         )
@@ -55,7 +55,7 @@ class GameBanners {
     }
 
     @Composable
-    fun Featured(game: Game) { // Seção que deixará o banner com maior tamanho/destaque
+    fun Featured(game: Game) {
         Column{
             Text("Featured",
                 fontSize = 12.sp,
@@ -63,13 +63,13 @@ class GameBanners {
                     .padding(bottom = 8.dp))
             Box(modifier = Modifier
                 .height(235.dp)){
-                GameBanner(game, modifier = Modifier.fillMaxSize()) // chama a imagem do jogo
+                GameBanner(game, modifier = Modifier.fillMaxSize())
 
             }
         }
     }
     @Composable
-    fun GameBannerSection(sectionTitle: String, games: List<Game>) { // lista com imagens maiores dos jogos
+    fun GameBannerSection(sectionTitle: String, games: List<Game>) {
         Column {
             Text(sectionTitle, modifier = Modifier.padding(bottom = 8.dp))
             Row(
@@ -78,7 +78,7 @@ class GameBanners {
                     .height(90.dp),
                 horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
-                games.forEach(){i -> // para cada jogo da lista, o jogo será chamado pelo seu índice (i)
+                games.forEach{i ->
                     GameBanner(i, modifier = Modifier.width(180.dp))
                 }
                 }

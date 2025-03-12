@@ -19,7 +19,7 @@ import com.gabriel.game_store.model.Game
 class ScreenHome {
 
 @Composable
-fun HomeBrew() { // Tela Home
+fun HomeBrew() {
     Column(
         modifier = Modifier
             .padding(horizontal = 16.dp)
@@ -32,15 +32,15 @@ fun HomeBrew() { // Tela Home
                 name = "COD: Warzone",
                 image = R.drawable.warzone
             )
-        ) // componente visual da seção "Featured"
+        )
         GameItem().GameCardSection(
             sectionTitle = "Top Rated",
             games = GameItem().game
-        ) // componente visual da seção "Top Rated"
+        )
         GameBanners().GameBannerSection(
             sectionTitle = "Recommended",
             games = GameBanners().game
-        ) // componente visual da seção "Recommended"
+        )
     }
 }
 }
