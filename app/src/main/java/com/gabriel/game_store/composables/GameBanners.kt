@@ -28,7 +28,7 @@ import com.gabriel.game_store.model.Game
 
 class GameBanners {
 
-    var game: List<Game> = listOf( // devemos substituir por uma lista vinda da API quando integrada
+    var game: List<Game> = listOf( // TODO(devemos substituir por uma lista vinda da API quando integrada)
         Game(name = "Red Dead Redemption 2", image = R.drawable.rdr2),
         Game(name = "COD: Warzone", image = R.drawable.warzone),
         Game(name = "Red Dead Redemption 2", image = R.drawable.rdr2),

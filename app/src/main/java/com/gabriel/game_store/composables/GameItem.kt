@@ -24,7 +24,7 @@ import com.gabriel.game_store.model.Game
 
 class GameItem {
 
-    var game: List<Game> = listOf(// devemos substituir por uma lista vinda da API quando integrada
+    var game: List<Game> = listOf(// TODO(devemos substituir por uma lista vinda da API quando integrada)
         Game(name = "God of War",image = R.drawable.gow),
         Game(name = "The Last Of Us", image = R.drawable.tlou),
         Game(name = "Zelda: Breath of the wild", image = R.drawable.zelda),
