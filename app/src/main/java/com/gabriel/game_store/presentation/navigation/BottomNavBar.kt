@@ -1,8 +1,12 @@
 package com.gabriel.game_store.presentation.navigation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -41,13 +45,20 @@ fun BottomNavBar(
         )
     }
 
-        NavigationBar(
-            modifier = Modifier
-                .width(300.dp)
-                .height(92.dp)
-                .clip(shape = RoundedCornerShape(20.dp)),
-            containerColor = Color.DarkGray.copy(alpha = 0.5f)
+    NavigationBar(
+        modifier = Modifier
+            .width(210.dp)
+            .heightIn( max = 90.dp)
+            .clip(shape = RoundedCornerShape(20.dp)),
+        containerColor = Color.DarkGray.copy(alpha = 0.5f)
 
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
 
             val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -62,7 +73,7 @@ fun BottomNavBar(
 
                 NavigationBarItem(
                     modifier = Modifier,
-                    selected =isSelected,
+                    selected = isSelected,
 
                     onClick = {
                         navController.navigate(destination.route) {
@@ -75,32 +86,33 @@ fun BottomNavBar(
                     },
                     icon = {
 
-                            Box(
-                                modifier = Modifier
-                                    .clip(CircleShape)
-                                    .size(52.dp)
-                                    .background(if (isSelected) Color.Green else Color.LightGray),
-                                contentAlignment = Alignment.Center
+                        Box(
+                            modifier = Modifier
+                                .clip(CircleShape)
+                                .size(40.dp)
+                                .align(Alignment.CenterVertically)
+                                .background(if (isSelected) Color.Green else Color.LightGray),
+                            contentAlignment = Alignment.Center
 
-                            ) {
+                        ) {
 
-                                Icon(
-                                    modifier = Modifier.size(24.dp),
-                                    painter = painterResource(id = destination.icon),
-                                    contentDescription = destination.label,
-                                    tint = Color.Black
-                                )
+                            Icon(
+                                modifier = Modifier.size(24.dp),
+                                painter = painterResource(id = destination.icon),
+                                contentDescription = destination.label,
+                                tint = Color.Black
+                            )
 
                         }
 
                     },
                     label = {
 
-                            Text(
-                                text = destination.label,
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = if (isSelected)Color.White else Color.Transparent
-                            )
+                        Text(
+                            text = destination.label,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = if (isSelected) Color.White else Color.Transparent
+                        )
 
                     },
                     colors = NavigationBarItemColors(
@@ -116,6 +128,7 @@ fun BottomNavBar(
             }
         }
     }
+}
 
 
 @Preview()
