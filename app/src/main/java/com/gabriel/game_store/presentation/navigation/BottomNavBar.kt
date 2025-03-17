@@ -1,5 +1,12 @@
 package com.gabriel.game_store.presentation.navigation
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -9,9 +16,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination.Companion.hasRoute
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 
@@ -27,47 +40,88 @@ fun BottomNavBar(
             BottomNavItems.Favorites,
         )
     }
-    NavigationBar {
 
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentDestination = navBackStackEntry?.destination
+        NavigationBar(
+            modifier = Modifier
+                .width(300.dp)
+                .height(92.dp)
+                .clip(shape = RoundedCornerShape(20.dp)),
+            containerColor = Color.DarkGray.copy(alpha = 0.5f)
 
-        bottomNavDestinations.forEach { destination ->
+        ) {
 
-            NavigationBarItem(
-                selected = currentDestination?.hierarchy?.any {
-                    it.hasRoute(destination.route::class)
-                } == true,
-                onClick = {
-                    navController.navigate(destination.route) {
-                        popUpTo(navController.graph.findStartDestination().id) {
-                            saveState = true
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentDestination = navBackStackEntry?.destination
+
+            println("Current route: ${currentDestination?.route}")
+
+            bottomNavDestinations.forEach { destination ->
+                println("Checking route: ${destination.route}, Selected: ${currentDestination?.route == destination.route}")
+                val isSelected = currentDestination?.route == destination.route::class.qualifiedName
+
+
+                NavigationBarItem(
+                    modifier = Modifier,
+                    selected =isSelected,
+
+                    onClick = {
+                        navController.navigate(destination.route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
                         }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
-                icon = {
-                    Icon(
-                        imageVector = destination.icon, contentDescription = destination.label
-                    )
-                },
-                label = {
-                    Text(
-                        text = destination.label,
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-                },
-                colors = NavigationBarItemColors(
-                    selectedIconColor = MaterialTheme.colorScheme.primary,
-                    selectedTextColor = MaterialTheme.colorScheme.onPrimary,
-                    selectedIndicatorColor = MaterialTheme.colorScheme.secondary,
-                    unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                    unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                    disabledIconColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
-                    disabledTextColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
-                ),
-            )
+                    },
+                    icon = {
+
+                            Box(
+                                modifier = Modifier
+                                    .clip(CircleShape)
+                                    .size(52.dp)
+                                    .background(if (isSelected) Color.Green else Color.LightGray),
+                                contentAlignment = Alignment.Center
+
+                            ) {
+
+                                Icon(
+                                    modifier = Modifier.size(24.dp),
+                                    painter = painterResource(id = destination.icon),
+                                    contentDescription = destination.label,
+                                    tint = Color.Black
+                                )
+
+                        }
+
+                    },
+                    label = {
+
+                            Text(
+                                text = destination.label,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = if (isSelected)Color.White else Color.Transparent
+                            )
+
+                    },
+                    colors = NavigationBarItemColors(
+                        selectedIconColor = Color.Transparent,
+                        selectedTextColor = MaterialTheme.colorScheme.onPrimary,
+                        selectedIndicatorColor = Color.Transparent,
+                        unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        unselectedTextColor = Color.Black,
+                        disabledIconColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+                        disabledTextColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+                    ),
+                )
+            }
         }
     }
+
+
+@Preview()
+@Composable()
+private fun BottomNavBarPreview() {
+    BottomNavBar(
+        navController = NavController(LocalContext.current)
+    )
 }

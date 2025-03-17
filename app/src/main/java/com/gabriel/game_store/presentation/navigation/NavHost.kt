@@ -1,5 +1,6 @@
 package com.gabriel.game_store.presentation.navigation
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -28,7 +29,7 @@ fun MyNavHost(
     NavHost(
         navController = navController,
         startDestination = HomeScreen,
-        modifier = modifier
+        modifier = modifier.fillMaxSize()
     ) {
         composable<HomeScreen> {
             Home()
