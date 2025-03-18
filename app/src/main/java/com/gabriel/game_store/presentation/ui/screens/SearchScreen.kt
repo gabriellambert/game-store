@@ -8,16 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
-
 @Composable
-fun Favorites(
+fun SearchScreen(
     modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier.fillMaxSize().background(Color.Black)
     ) {
         Text(
-            text = "Hi Saved",
+            text = "Hi Search",
             color = Color.White,
         )
     }

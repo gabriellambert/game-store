@@ -28,12 +28,14 @@ class MainActivity : ComponentActivity() {
                             contentAlignment = Alignment.Center,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding( start = 30.dp)
+                                .padding(start = 30.dp)
                         ) {
-                        BottomNavBar(
-                        navController = navController
+                            BottomNavBar(
+                                navController = navController
 
-                    ) }}
+                            )
+                        }
+                    }
                 ) { innerPadding ->
                     Box(
                         modifier = Modifier
@@ -44,7 +46,6 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             modifier = Modifier
                                 .fillMaxSize()
-
                         )
                     }
                 }

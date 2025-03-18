@@ -9,14 +9,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun Search(
+fun HomeScreen(
     modifier: Modifier = Modifier
+
 ) {
     Column(
         modifier = modifier.fillMaxSize().background(Color.Black)
     ) {
         Text(
-            text = "Hi Search",
+            text = "Hi Home",
             color = Color.White,
         )
     }
