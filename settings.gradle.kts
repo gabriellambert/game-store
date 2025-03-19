@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "game-store"
 include(":app")
+include(":app:rawg-api")
