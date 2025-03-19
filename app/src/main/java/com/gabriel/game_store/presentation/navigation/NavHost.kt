@@ -1,13 +1,14 @@
 package com.gabriel.game_store.presentation.navigation
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.gabriel.game_store.presentation.ui.screens.Favorites
-import com.gabriel.game_store.presentation.ui.screens.Home
-import com.gabriel.game_store.presentation.ui.screens.Search
+import com.gabriel.game_store.presentation.ui.screens.FavoritesScreen
+import com.gabriel.game_store.presentation.ui.screens.HomeScreen
+import com.gabriel.game_store.presentation.ui.screens.SearchScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -19,7 +20,6 @@ object HomeScreen
 @Serializable
 object FavoritesScreen
 
-
 @Composable
 fun MyNavHost(
     modifier: Modifier = Modifier,
@@ -28,19 +28,16 @@ fun MyNavHost(
     NavHost(
         navController = navController,
         startDestination = HomeScreen,
-        modifier = modifier
+        modifier = modifier.fillMaxSize()
     ) {
         composable<HomeScreen> {
-            Home()
+            HomeScreen()
         }
-
         composable<SearchScreen> {
-            Search()
+            SearchScreen()
         }
-
         composable<FavoritesScreen> {
-            Favorites()
+            FavoritesScreen()
         }
-
     }
 }
