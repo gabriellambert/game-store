@@ -1,4 +1,4 @@
-package com.gabriel.game_store
+package com.app.game_store
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,9 +12,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
-import com.gabriel.game_store.presentation.navigation.BottomNavBar
-import com.gabriel.game_store.presentation.navigation.MyNavHost
-import com.gabriel.game_store.presentation.ui.theme.GamestoreTheme
+import com.app.game_store.presentation.navigation.BottomNavBar
+import com.app.game_store.presentation.navigation.MyNavHost
+import com.app.game_store.presentation.ui.theme.GamestoreTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

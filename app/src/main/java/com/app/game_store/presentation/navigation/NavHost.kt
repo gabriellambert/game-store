@@ -1,4 +1,4 @@
-package com.gabriel.game_store.presentation.navigation
+package com.app.game_store.presentation.navigation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -6,9 +6,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.gabriel.game_store.presentation.ui.screens.FavoritesScreen
-import com.gabriel.game_store.presentation.ui.screens.HomeScreen
-import com.gabriel.game_store.presentation.ui.screens.SearchScreen
+import com.app.game_store.presentation.ui.screens.FavoritesScreen
+import com.app.game_store.presentation.ui.screens.HomeScreen
+import com.app.game_store.presentation.ui.screens.SearchScreen
 import kotlinx.serialization.Serializable
 
 @Serializable

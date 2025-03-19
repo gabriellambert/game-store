@@ -1,6 +1,5 @@
-package com.gabriel.game_store.presentation.ui.theme
+package com.app.game_store.presentation.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

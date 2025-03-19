@@ -1,4 +1,4 @@
-package com.gabriel.game_store
+package com.app.game_store
 
 import org.junit.Test
 

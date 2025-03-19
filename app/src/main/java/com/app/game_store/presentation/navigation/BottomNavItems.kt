@@ -1,6 +1,6 @@
-package com.gabriel.game_store.presentation.navigation
+package com.app.game_store.presentation.navigation
 
-import com.gabriel.game_store.R
+import com.app.game_store.R
 import kotlinx.serialization.Serializable
 
 @Serializable

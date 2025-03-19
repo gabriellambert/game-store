@@ -6,7 +6,7 @@ plugins {
     kotlin("plugin.serialization") version "2.0.0"
 }
 android {
-    namespace = "com.app.network"
+    namespace = "com.app.rawg_api"
     compileSdk = 35
 
     defaultConfig {

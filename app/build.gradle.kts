@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.gabriel.game_store"
+    namespace = "com.app.game_store"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.gabriel.game_store"
+        applicationId = "com.app.game_store"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

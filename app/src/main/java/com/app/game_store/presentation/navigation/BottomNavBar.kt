@@ -1,4 +1,4 @@
-package com.gabriel.game_store.presentation.navigation
+package com.app.game_store.presentation.navigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
