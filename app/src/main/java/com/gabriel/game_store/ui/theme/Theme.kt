@@ -1,4 +1,4 @@
-package com.gabriel.game_store.presentation.ui.theme
+package com.gabriel.game_store.ui.theme
 
 import android.app.Activity
 import android.os.Build
