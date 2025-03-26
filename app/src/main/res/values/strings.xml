@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">game-store</string>
+    <string name="featured">Featured</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="home_label">Home</string>
+    <string name="search_label">Search</string>
+    <string name="favorites_label">Saved</string>
+    <string name="recommended">Recommended</string>
 </resources>

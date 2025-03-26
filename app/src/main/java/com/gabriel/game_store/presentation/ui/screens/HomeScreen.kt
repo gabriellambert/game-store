@@ -10,6 +10,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.gabriel.game_store.R
 import com.gabriel.game_store.composables.Featured
@@ -45,7 +46,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
         Featured(game = gameBanner[1])
-        GameCardSection(sectionTitle = "Top Rated", games = gameItens)
-        GameBannerSection(sectionTitle = "Recommended", games = gameBanner)
+        GameCardSection(sectionTitle = stringResource(R.string.top_rated), games = gameItens)
+        GameBannerSection(sectionTitle = stringResource(R.string.recommended), games = gameBanner)
     }
 }

@@ -18,7 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.gabriel.game_store.R
 import com.gabriel.game_store.model.Game
 
 @Composable
@@ -40,7 +42,7 @@ fun GameBanner(game: Game, modifier: Modifier) {
 fun Featured(game: Game) {
     Column {
         Text(
-            "Featured",
+            text = stringResource(R.string.featured),
             modifier = Modifier
                 .padding(bottom = 8.dp)
         )
