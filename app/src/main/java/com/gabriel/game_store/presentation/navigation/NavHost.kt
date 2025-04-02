@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.gabriel.game_store.presentation.ui.screens.DetailScreen
 import com.gabriel.game_store.presentation.ui.screens.FavoritesScreen
 import com.gabriel.game_store.presentation.ui.screens.HomeScreen
 import com.gabriel.game_store.presentation.ui.screens.SearchScreen
@@ -38,6 +39,9 @@ fun MyNavHost(
         }
         composable<FavoritesScreen> {
             FavoritesScreen()
+        }
+        composable("DetailScreen"){
+            DetailScreen()
         }
     }
 }
