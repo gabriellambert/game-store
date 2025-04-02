@@ -40,7 +40,7 @@ fun MyNavHost(
         composable<FavoritesScreen> {
             FavoritesScreen()
         }
-        composable("DetailScreen"){
+        composable("DetailScreen") {
             DetailScreen()
         }
     }
