@@ -32,7 +32,7 @@ fun MyNavHost(
         modifier = modifier.fillMaxSize()
     ) {
         composable<HomeScreen> {
-            HomeScreen()
+            HomeScreen(navController = navController)
         }
         composable<SearchScreen> {
             SearchScreen()
@@ -41,7 +41,9 @@ fun MyNavHost(
             FavoritesScreen()
         }
         composable("DetailScreen") {
-            DetailScreen()
+            DetailScreen(
+                navController = navController
+            )
         }
     }
 }

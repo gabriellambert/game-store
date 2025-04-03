@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.gabriel.game_store.R
 import com.gabriel.game_store.composables.Featured
 import com.gabriel.game_store.composables.GameBannerSection
@@ -37,7 +38,7 @@ var gameBanner: List<Game> = listOf(
 )
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
     Column(
         modifier = Modifier
             .padding(horizontal = 16.dp)
@@ -46,7 +47,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
         Featured(game = gameBanner[1])
-        GameCardSection(sectionTitle = stringResource(R.string.top_rated), games = gameItens)
+        GameCardSection(sectionTitle = stringResource(R.string.top_rated), games = gameItens, navController = navController)
         GameBannerSection(sectionTitle = stringResource(R.string.recommended), games = gameBanner)
     }
 }

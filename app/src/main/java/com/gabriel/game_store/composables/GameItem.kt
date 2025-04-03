@@ -19,23 +19,26 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.gabriel.game_store.model.Game
 
 @Composable
-fun GameCard(game: Game) {
-    Image(modifier = Modifier
-        .height(150.dp)
-        .width(100.dp)
-        .clip(shape = RoundedCornerShape(10.dp))
-        .clickable { }
-        .focusable(),
+fun GameCard(game: Game, navController: NavController) {
+    Image(
+        modifier = Modifier
+            .height(150.dp)
+            .width(100.dp)
+            .clip(shape = RoundedCornerShape(10.dp))
+            .clickable(onClick = { navController.navigate("DetailScreen") })
+            .focusable(),
         painter = painterResource(id = game.image),
         contentDescription = "Game Card",
-        contentScale = ContentScale.Crop)
+        contentScale = ContentScale.Crop
+    )
 }
 
 @Composable
-fun GameCardSection(sectionTitle: String, games: List<Game>) {
+fun GameCardSection(sectionTitle: String, games: List<Game>, navController: NavController) {
     Column {
         Text(sectionTitle, modifier = Modifier.padding(bottom = 8.dp))
         Row(
@@ -44,7 +47,7 @@ fun GameCardSection(sectionTitle: String, games: List<Game>) {
             horizontalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             games.forEach { i ->
-                GameCard(i)
+                GameCard(game = i, navController = navController)
 
             }
         }
