@@ -27,9 +27,9 @@ fun DetailScreen(
         IconButton(
             modifier = modifier
                 .padding(10.dp),
-            onClick = { navController.navigate("returnBackStack") }) {
+            onClick = { navController.navigate("BackStack") }) {
             Image(painter = painterResource(R.drawable.back_arrow_icon), contentDescription = null)
-        }//TODO(Quando criar layout, adicione o banner do jogo antes da column começar)
+        }
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
