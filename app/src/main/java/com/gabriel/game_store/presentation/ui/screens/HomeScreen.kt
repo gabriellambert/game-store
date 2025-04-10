@@ -19,13 +19,14 @@ import com.gabriel.game_store.composables.GameBannerSection
 import com.gabriel.game_store.composables.GameCardSection
 import com.gabriel.game_store.model.Game
 
-var gameItens: List<Game> = listOf(// TODO(devemos substituir por uma lista vinda da API quando integrada)
-    Game(name = "God of War", image = R.drawable.gow),
-    Game(name = "The Last Of Us", image = R.drawable.tlou),
-    Game(name = "Zelda: Breath of the wild", image = R.drawable.zelda),
-    Game(name = "Spider man: Miles Morales", image = R.drawable.milesmorales),
-    Game(name = "DarkSouls", image = R.drawable.darksouls)
-)
+var gameItens: List<Game> =
+    listOf(// TODO(devemos substituir por uma lista vinda da API quando integrada)
+        Game(name = "God of War", image = R.drawable.gow),
+        Game(name = "The Last Of Us", image = R.drawable.tlou),
+        Game(name = "Zelda: Breath of the wild", image = R.drawable.zelda),
+        Game(name = "Spider man: Miles Morales", image = R.drawable.milesmorales),
+        Game(name = "DarkSouls", image = R.drawable.darksouls)
+    )
 
 var gameBanner: List<Game> = listOf(
     // TODO(devemos substituir por uma lista vinda da API quando integrada)
@@ -47,7 +48,11 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
         Featured(game = gameBanner[1])
-        GameCardSection(sectionTitle = stringResource(R.string.top_rated), games = gameItens, navController = navController)
+        GameCardSection(
+            sectionTitle = stringResource(R.string.top_rated),
+            games = gameItens,
+            navController = navController
+        )
         GameBannerSection(sectionTitle = stringResource(R.string.recommended), games = gameBanner)
     }
 }

@@ -54,7 +54,6 @@ fun BottomNavBar(
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
-
         bottomNavDestinations.forEach { destination ->
             val isSelected = currentDestination?.route == destination.route::class.qualifiedName
             NavigationBarItem(

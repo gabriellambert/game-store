@@ -32,7 +32,6 @@ class MainActivity : ComponentActivity() {
                         ) {
                             BottomNavBar(
                                 navController = navController
-
                             )
                         }
                     }

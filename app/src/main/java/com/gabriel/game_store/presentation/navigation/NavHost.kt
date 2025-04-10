@@ -41,9 +41,13 @@ fun MyNavHost(
             FavoritesScreen()
         }
         composable("DetailScreen") {
-            DetailScreen(
-                navController = navController
-            )
+            DetailScreen(navController = navController)
+        }
+        composable("returnBackStack") {
+            val backStackEntry = navController.previousBackStackEntry
+            if (backStackEntry != null) {
+                navController.navigateUp()
+            }
         }
     }
 }
