@@ -47,12 +47,15 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
             .windowInsetsPadding(insets = WindowInsets.systemBars),
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
-        Featured(game = gameBanner[1])
+        Featured(game = gameBanner[1], navController = navController)
         GameCardSection(
             sectionTitle = stringResource(R.string.top_rated),
             games = gameItens,
             navController = navController
         )
-        GameBannerSection(sectionTitle = stringResource(R.string.recommended), games = gameBanner)
+        GameBannerSection(
+            sectionTitle = stringResource(R.string.recommended), games = gameBanner,
+            navController = navController
+        )
     }
 }

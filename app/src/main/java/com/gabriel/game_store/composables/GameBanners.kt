@@ -20,16 +20,17 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.gabriel.game_store.R
 import com.gabriel.game_store.model.Game
 
 @Composable
-fun GameBanner(game: Game, modifier: Modifier) {
+fun GameBanner(game: Game, modifier: Modifier, navController: NavController) {
     Image(
         modifier = Modifier
             .fillMaxSize()
             .clip(shape = RoundedCornerShape(20.dp))
-            .clickable { }
+            .clickable { navController.navigate("DetailScreen") }
             .focusable(),
         painter = painterResource(id = game.image),
         contentDescription = "Game Banner",
@@ -39,7 +40,7 @@ fun GameBanner(game: Game, modifier: Modifier) {
 }
 
 @Composable
-fun Featured(game: Game) {
+fun Featured(game: Game, navController: NavController) {
     Column {
         Text(
             text = stringResource(R.string.featured),
@@ -50,14 +51,14 @@ fun Featured(game: Game) {
             modifier = Modifier
                 .height(235.dp)
         ) {
-            GameBanner(game, modifier = Modifier.fillMaxSize())
+            GameBanner(game, modifier = Modifier.fillMaxSize(), navController = navController)
 
         }
     }
 }
 
 @Composable
-fun GameBannerSection(sectionTitle: String, games: List<Game>) {
+fun GameBannerSection(sectionTitle: String, games: List<Game>, navController: NavController) {
     Column {
         Text(sectionTitle, modifier = Modifier.padding(bottom = 8.dp))
         LazyRow(
@@ -65,7 +66,7 @@ fun GameBannerSection(sectionTitle: String, games: List<Game>) {
             horizontalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             items(games.size) { i ->
-                GameBanner(games[i], modifier = Modifier.width(180.dp))
+                GameBanner(games[i], modifier = Modifier.width(180.dp,), navController = navController)
             }
 
         }
