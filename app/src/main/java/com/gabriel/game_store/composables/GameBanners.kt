@@ -66,7 +66,11 @@ fun GameBannerSection(sectionTitle: String, games: List<Game>, navController: Na
             horizontalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             items(games.size) { i ->
-                GameBanner(games[i], modifier = Modifier.width(180.dp,), navController = navController)
+                GameBanner(
+                    games[i],
+                    modifier = Modifier.width(180.dp),
+                    navController = navController
+                )
             }
 
         }

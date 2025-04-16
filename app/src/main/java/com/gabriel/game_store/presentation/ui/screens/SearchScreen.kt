@@ -13,7 +13,9 @@ fun SearchScreen(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.fillMaxSize().background(Color.Black)
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.Black)
     ) {
         Text(
             text = "Hi Search",
